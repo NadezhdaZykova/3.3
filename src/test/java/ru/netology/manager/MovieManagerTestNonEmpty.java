@@ -19,8 +19,6 @@ public class MovieManagerTestNonEmpty {
     manager.add(second);
     manager.add(third);
 
-    manager.removeById(idToRemove);
-
     MovieItem[] actual = manager.getAll();
     MovieItem[] expected = new MovieItem[]{third, second};
 
@@ -39,7 +37,6 @@ public class MovieManagerTestNonEmpty {
     manager.add(second);
     manager.add(third);
 
-    manager.removeById(idToRemove);
 
     MovieItem[] actual = manager.getAll();
     MovieItem[] expected = new MovieItem[]{third, second, first};
