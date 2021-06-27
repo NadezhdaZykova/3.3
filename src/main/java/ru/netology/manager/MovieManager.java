@@ -1,6 +1,13 @@
 package ru.netology.manager;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.netology.domain.MovieItem;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class MovieManager {
     private MovieItem[] items = new MovieItem[0];
