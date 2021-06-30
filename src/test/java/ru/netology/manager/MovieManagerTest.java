@@ -53,6 +53,7 @@ public class MovieManagerTest {
     MovieItem nine = new MovieItem(9, 9, "nine", 1, 1);
     MovieItem ten = new MovieItem(10, 10, "ten", 1, 1);
     MovieItem eleven = new MovieItem(11, 11, "eleven", 1, 1);
+    MovieItem twelve = new MovieItem(12, 12, "twelve", 1, 1);
     manager.add(first);
     manager.add(second);
     manager.add(third);
@@ -64,9 +65,10 @@ public class MovieManagerTest {
     manager.add(nine);
     manager.add(ten);
     manager.add(eleven);
+    manager.add(twelve);
 
     MovieItem[] actual = manager.getAll();
-    MovieItem[] expected = new MovieItem[]{eleven, ten,nine,eight,seven,six,fifth,fourth,third, second,first};
+    MovieItem[] expected = new MovieItem[]{twelve,eleven, ten,nine,eight,seven,six,fifth,fourth,third,second,first};
 
 //    assertEquals(expected, actual);
     assertArrayEquals(expected, actual);

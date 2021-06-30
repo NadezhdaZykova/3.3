@@ -33,7 +33,7 @@ public class MovieManager {
         if (resultLength > 10) {
             resultLength = 10;
         } else{
-            resultLength = resultLength;
+            resultLength = items.length;
         }
 
         MovieItem[] result = new MovieItem[items.length];
