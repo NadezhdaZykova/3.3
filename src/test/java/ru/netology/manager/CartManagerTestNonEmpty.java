@@ -1,49 +1,28 @@
 package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.domain.MovieItem;
-import ru.netology.manager.MovieManager;
+import ru.netology.domain.PurchaseItem;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class MovieManagerTestNonEmpty {
+public class CartManagerTestNonEmpty {
+    @Test
+    public void shouldRemoveIfExists() {
+        CartManager manager = new CartManager();
+        int idToRemove = 1;
+        PurchaseItem first = new PurchaseItem(1, 1, "first", 1, 1);
+        PurchaseItem second = new PurchaseItem(2, 2, "second", 1, 1);
+        PurchaseItem third = new PurchaseItem(3, 3, "third", 1, 1);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
 
-  @Test
-  public void shouldRemoveIfExists() {
-    MovieManager manager = new MovieManager();
-    int idToRemove = 1;
-    MovieItem first = new MovieItem(1, 1, "first", 1, 1);
-    MovieItem second = new MovieItem(2, 2, "second", 1, 1);
-    MovieItem third = new MovieItem(3, 3, "third", 1, 1);
-    manager.add(first);
-    manager.add(second);
-    manager.add(third);
+        manager.removeById(idToRemove);
 
-    manager.removeById(idToRemove);
+        PurchaseItem[] actual = manager.getAll();
+        PurchaseItem[] expected = new PurchaseItem[]{third, second};
 
-    MovieItem[] actual = manager.getAll();
-    MovieItem[] expected = new MovieItem[]{third, second};
+        assertArrayEquals(expected, actual);
+    }
 
-//    assertEquals(expected, actual);
-    assertArrayEquals(expected, actual);
-  }
-
-  @Test
-  public void shouldNotRemoveIfNotExists() {
-    MovieManager manager = new MovieManager();
-    int idToRemove = 4;
-    MovieItem first = new MovieItem(1, 1, "first", 1, 1);
-    MovieItem second = new MovieItem(2, 2, "second", 1, 1);
-    MovieItem third = new MovieItem(3, 3, "third", 1, 1);
-    manager.add(first);
-    manager.add(second);
-    manager.add(third);
-
-    manager.removeById(idToRemove);
-
-    MovieItem[] actual = manager.getAll();
-    MovieItem[] expected = new MovieItem[]{third, second, first};
-
-    assertArrayEquals(expected, actual);
-  }
 }
