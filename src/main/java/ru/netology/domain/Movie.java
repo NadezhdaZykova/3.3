@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 
-public class MovieItem {
-  private int id;
-  private int movieId;
-  private String movieName;
-  private int moviePrice;
-  private int count;
+public class Movie {
+    private int id;
+    private String Url;
+    private String name;
+    private String genre;
 }
